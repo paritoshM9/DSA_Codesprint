@@ -1,6 +1,6 @@
 # DSA_Codesprint
 
-This repository contains a collection of data structures and algorithms questions commonly asked in coding interviews. The level of difficulty for these problems range from easy to medium with a few hard questions.
+This repository contains a collection of data structures and algorithms questions commonly asked in coding interviews. The level of difficulty for these problems range from easy to medium with a few hard questions. The language used is C++.
 
 The objective of this repository is two fold : 
 
