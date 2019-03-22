@@ -232,3 +232,54 @@ node* arrange_LinkedList(node* head)
 
 
 
+Q8) Delete every N nodes
+
+#### Given a linked list and two integers M and N. Traverse the linked list such that you retain M nodes then delete next N nodes, continue the same until end of the linked list. That is, in the given linked list you need to delete N nodes after every M nodes.
+
+```c++
+// Following is the node structure
+/**************
+class node{
+public:
+    int data;
+    node * next;
+    node(int data){
+        this->data=data;
+        this->next=NULL;
+    }
+};
+***************/
+void delete_m(node* head, int m, int n){
+    if(head == NULL){
+        return;
+    }
+    
+    node* temp = head;
+    node* prev;
+    int i = 0;
+    while(temp && i<m){
+        prev = temp;
+        temp = temp->next;
+        i++;
+    }
+    int j = 0;
+    while(temp && j<n){
+        temp = temp->next;
+        j++;
+    }
+    prev->next = temp;
+    delete_m(temp, m, n);
+    
+}
+node* skipMdeleteN(node  *head, int M, int N) {
+    // Write your code here
+    delete_m(head, M, N);
+    return head;
+}
+
+```
+
+
+
+
+
