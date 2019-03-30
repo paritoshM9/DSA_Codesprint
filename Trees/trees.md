@@ -297,3 +297,66 @@ void replaceWithDepthValue(TreeNode<int> *root){
 }
 ```
 
+Q ) Remove leaf nodes in Tree
+
+#### Remove all leaf nodes from a given generic Tree. Leaf nodes are those nodes, which don't have any children.
+
+##### Note : Root will also be a leaf node if it doesn't have any child. You don't need to print the tree, just remove all leaf nodes and return the updated root.
+
+##### 
+
+```c++
+// Following is the given Tree node structure.
+/**************
+class TreeNode {
+	TreeNode<T>** children;
+	int childCount;
+
+	public:
+	T data;
+
+	TreeNode(T data);	// Constructor
+	int numChildren();
+	void addChild(TreeNode<T>* child);
+	TreeNode<T>* getChild(int index);
+	void setChild(int index, TreeNode<T>* child);
+    void removeChild(int index);
+ 
+};
+***************/
+#include<vector>
+TreeNode<int>* removeLeafNodes(TreeNode<int>* root) {
+    // Write your code here
+    if(root == NULL){
+        return NULL;
+    }
+    int num_child = root->numChildren();
+    if(num_child == 0){
+        return NULL;
+    }
+    vector<int> indices;
+    for(int i = 0; i<num_child; i++){
+        
+        TreeNode<int>* child = root->getChild(i);
+        if(child->numChildren() == 0){
+            indices.push_back(i);
+        }
+        
+    }
+    for(int i = indices.size() - 1; i>= 0; i--){
+        root->removeChild(indices[i]);
+    }
+    
+    for(int i = 0; i<root->numChildren(); i++){
+        TreeNode<int>* temp = removeLeafNodes(root->getChild(i));
+        if(temp == NULL){
+            root->removeChild(i);
+        }
+        
+    }
+    return root;
+}
+
+
+```
+
