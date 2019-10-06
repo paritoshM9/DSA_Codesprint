@@ -1,5 +1,8 @@
 <h1>hashmaps</h1>
 
+Hashmaps are datastructures (like arrays and lists), that use hashing(assigning unique value for key) to store data.
+They are used for storing data in key value pairs. We can use a hashmap for storing objects in a application and use it further in the same application for storing, updating, deleting values.
+
 Q) Extract Unique characters
 
 #### Given a string, you need to remove all the duplicates. That means, the output string should contain each character only once. The respective order of characters should remain same.
