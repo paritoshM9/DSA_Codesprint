@@ -1,5 +1,8 @@
 <h1>Graphs</h1>
 
+A Graph is a non-linear data structure consisting of nodes and edges. The nodes are sometimes also referred to as vertices and the edges are lines or arcs that connect any two nodes in the graph.
+A Graph consists of a finite set of vertices(or nodes) and set of Edges which connect a pair of nodes.
+
 Q1) Islands
 
 #### An island is a small piece of land surrounded by water . A group of islands is said to be connected if we can reach from any given island to any other island in the same group . Given N islands (numbered from 1 to N) and two lists of size M (u and v) denoting island u[i] is connected to island v[i] and vice versa . Can you count the number of connected groups of islands.
