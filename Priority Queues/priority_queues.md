@@ -1,5 +1,10 @@
 <h1>Priority Queue</h1>
 
+Priority Queue is an extension of queue with following properties:
+1)Every item has a priority associated with it.
+2)An element with high priority is dequeued before an element with low priority.
+3)If two elements have the same priority, they are served according to their order in the queue.
+
 Q1) Check Max-Heap
 
 #### Given an array of integers, check whether it represents max-heap or not.

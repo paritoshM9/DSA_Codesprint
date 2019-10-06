@@ -1,5 +1,7 @@
 <h1>BST</h1>
 
+<h3>A binary search tree is a type of binary tree in which the data of all the nodes in the left sub-tree of the root node is less-than or equal to the data of the root and the data of all the nodes in the right subtree of the root node is greater-than the data of the root.</h3>
+
 Q1) Create & Insert Duplicate Node
 
 #### Given a Binary Tree with N number of nodes, for each node create a new duplicate node, and insert that duplicate as left child of the original node.

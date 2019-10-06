@@ -1,5 +1,7 @@
 <h1>Binary Trees</h1>
 
+<h3>A binary tree is a special type of tree in which every node or vertex has either no child node or one child node or two child nodes.A binary tree is an important class of a tree data structure in which a node can have at most two children.</h3>
+
 Q1 ) Sum of all nodes
 
 #### Given a binary tree, find and return the sum of all nodes.
