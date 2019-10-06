@@ -1,6 +1,10 @@
 <h1>stacks</h1>
 
-Q) Check redundant brackets
+Stack is an abstract data type with a bounded(predefined) capacity. It is a simple data structure that allows adding and removing 
+elements in a particular order. Every time an element is added, it goes on the top of the stack and the only element that can be removed 
+is the element that is at the top of the stack, just like a pile of objects.
+
+Q1) Check redundant brackets
 
 #### Given a string mathematical expression, return true if redundant brackets are present in the expression. Brackets are redundant if there is nothing inside the bracket or more than one pair of brackets are present.
 
@@ -41,6 +45,120 @@ bool checkRedundantBrackets(char *input) {
     return false;
 }
 ```
+Q2) Design a stack that supports getMin() in O(1) time and O(1) extra space
+
+#### Design a Data Structure SpecialStack that supports all the stack operations like push(), pop(), isEmpty(), isFull() and an additional operation getMin() which should return minimum element from the SpecialStack. All these operations of SpecialStack must be O(1). To implement SpecialStack, you should only use standard Stack data structure and no other data structure like arrays, list, .. etc.
+
+```c++
+#include <bits/stdc++.h> 
+using namespace std; 
+
+A user defined stack that supports getMin() in  addition to push() and pop() 
+struct MyStack 
+{ 
+    stack<int> s; 
+    int minEle; 
+  
+    // Prints minimum element of MyStack 
+    void getMin() 
+    { 
+        if (s.empty()) 
+            cout << "Stack is empty\n"; 
+  
+        // variable minEle stores the minimum element 
+        // in the stack. 
+        else
+            cout <<"Minimum Element in the stack is: "
+                 << minEle << "\n"; 
+    } 
+  
+    // Prints top element of MyStack 
+    void peek() 
+    { 
+        if (s.empty()) 
+        { 
+            cout << "Stack is empty "; 
+            return; 
+        } 
+  
+        int t = s.top(); // Top element. 
+  
+        cout << "Top Most Element is: "; 
+  
+        // If t < minEle means minEle stores 
+        // value of t. 
+        (t < minEle)? cout << minEle: cout << t; 
+    } 
+  
+    // Remove the top element from MyStack 
+    void pop() 
+    { 
+        if (s.empty()) 
+        { 
+            cout << "Stack is empty\n"; 
+            return; 
+        } 
+  
+        cout << "Top Most Element Removed: "; 
+        int t = s.top(); 
+        s.pop(); 
+  
+        // Minimum will change as the minimum element 
+        // of the stack is being removed. 
+        if (t < minEle) 
+        { 
+            cout << minEle << "\n"; 
+            minEle = 2*minEle - t; 
+        } 
+  
+        else
+            cout << t << "\n"; 
+    } 
+  
+    // Removes top element from MyStack 
+    void push(int x) 
+    { 
+        // Insert new number into the stack 
+        if (s.empty()) 
+        { 
+            minEle = x; 
+            s.push(x); 
+            cout <<  "Number Inserted: " << x << "\n"; 
+            return; 
+        } 
+  
+        // If new number is less than minEle 
+        if (x < minEle) 
+        { 
+            s.push(2*x - minEle); 
+            minEle = x; 
+        } 
+  
+        else
+           s.push(x); 
+  
+        cout <<  "Number Inserted: " << x << "\n"; 
+    } 
+}; 
+  
+int main() 
+{ 
+    MyStack s; 
+    s.push(3); 
+    s.push(5); 
+    s.getMin(); 
+    s.push(2); 
+    s.push(1); 
+    s.getMin(); 
+    s.pop(); 
+    s.getMin(); 
+    s.pop(); 
+    s.peek(); 
+  
+    return 0; 
+} 
+```
+
 
 
 
