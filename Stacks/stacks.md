@@ -1,5 +1,9 @@
 <h1>stacks</h1>
 
+Stack is an abstract data type with a bounded(predefined) capacity. It is a simple data structure that allows adding and removing 
+elements in a particular order. Every time an element is added, it goes on the top of the stack and the only element that can be removed 
+is the element that is at the top of the stack, just like a pile of objects.
+
 Q) Check redundant brackets
 
 #### Given a string mathematical expression, return true if redundant brackets are present in the expression. Brackets are redundant if there is nothing inside the bracket or more than one pair of brackets are present.

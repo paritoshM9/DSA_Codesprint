@@ -1,6 +1,7 @@
 <h1>Trees</h1>
 
-
+A tree is an abstract data type, such that each node consists of one element and some number of sub-trees (which has an upper bound for 
+an n-ary tree) and where a node has one and only one parent (except for the root, which has no parent).
 
 Q1) Given a generic tree and an integer x, check if x is present in the given tree or not. Return true if x is present, return false otherwise.
 
