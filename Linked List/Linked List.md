@@ -283,7 +283,28 @@ node* skipMdeleteN(node  *head, int M, int N) {
 
 ```
 
+Q9) Find the mid point of link list in one iteration 
+
+### In order to find the mid point of the given link list we take two pointer as FIRST and SECOND , The basic concept is FIRST pointer moves to next address that is pointed to where as the SECOND pointer moves next of next address that is being pointed 
+
+```c++
+
+int sin_mid(node* head)  // Finds mid point of List
+{
+  struct node* first, *second;
+  first=head; 
+  second=head;
+  while(second!=NULL && second->next!=NULL) //check for last node address is null or not 
+  {
+  second=second->next->next;
+    if(second!=NULL && second->next!=NULL)
+    {
+    first=first->next; 
+    }
+  }
+    int mid=first->data;
+    return mid;
+}
 
 
-
-
+```
