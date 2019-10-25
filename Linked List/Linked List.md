@@ -25,6 +25,68 @@ int indexOfNIter(Node *head, int n) {
     
 }
 ```
+```java
+/*
+*Program to create LinkedList in Java
+*Follow the same for every question
+*/
+
+public class LinkedList {
+    Node head;
+
+    static class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    private static LinkedList insert(LinkedList linkedList, int data) {
+        if (linkedList.head == null) {
+            linkedList.head = new Node(data);
+        } else {
+            Node currentNode = linkedList.head;
+
+            while (currentNode.next != null) {
+                currentNode = currentNode.next;
+            }
+            currentNode.next = new Node(data);
+        }
+
+        return linkedList;  
+    }
+
+   private static int indexOfNItre(Node head, int n){
+        int index = 0;
+        while (head != null){
+            if(head.data == n){
+                return index;
+            }
+            index = index+1;
+            head = head.next;
+        }
+
+        return -1;
+    }
+
+    public static void main(String[] args) {
+
+        LinkedList list = new LinkedList();
+
+        insert(list, 1);
+        insert(list, 2);
+        insert(list, 3);
+        insert(list, 4);
+        insert(list, 5);
+        insert(list, 6);
+        insert(list, 7);
+
+    }
+}
+```
 
 
 
@@ -61,6 +123,34 @@ node* append_LinkedList(node* head,int n)
 
 ```
 
+```java
+public class LinkedList{
+     private static Node appendLinkedList(Node head, int n){
+    
+            // Point this fast {@link Node} to N postion 
+            Node fast = head;
+            for(int i=0; i<n; i++){
+                fast = fast.next;
+            }
+    
+            // Point this slow {@link Node} to length - n position
+            Node slow = head;
+            while (fast.next != null){
+                fast = fast.next;
+                slow = slow.next;
+            }
+    
+            //Change the head 
+            fast.next = head;
+            Node newHead = slow.next;
+            slow.next = null;
+    
+            return newHead;
+    
+        }
+}
+```
+
 Q3) Eliminate duplicates from LL
 
 #### Given a sorted linked list (elements are sorted in ascending order). Eliminate duplicates from the given LL, such that output LL contains only unique elements.
@@ -83,6 +173,26 @@ node* eliminate_duplicate(node* head)
 
 ```
 
+```java
+//Java Code to eliminate duplicate
+public class LinkedListImpl
+{
+    public static Node eliminateDuplicate(Node head)
+    {
+        Node currentNode = head;
+        while(currentNode.next != null){
+            if(currentNode.next.data == currentNode.data){
+                currentNode.next = currentNode.next.next;
+            }
+            else{
+                currentNode = currentNode.next;
+            }
+        }   
+    }
+}
+
+```
+
 
 
 Q4) Print reverse LinkedList
@@ -98,6 +208,21 @@ void print_linkedlist_spl(node*head)
     
     print_linkedlist_spl(head->next);
     cout<<head->data<<" ";
+}
+
+```
+
+```java
+// Java code to reverse LinkedList
+class LinkedListImpl{
+
+    void printLinkedListInReverseOrder(Node head){
+        if(head == null){
+            return;
+        }
+        printLinkedListInReverseOrder(head.next); // calling recursively
+        System.out.println(head.data);
+    }
 }
 
 ```
@@ -168,6 +293,46 @@ bool check_palindrome(node* head)
 
 ```
 
+```java
+
+public class LinkedList{
+     static class Node {
+            char data;
+            Node next;
+    
+            public Node(char data) {
+                this.data = data;
+                this.next = null;
+            }
+        }
+
+
+    Node left;
+    private boolean checkPalindrome(Node right){
+        left = head;
+        if(right == null){
+            return true;
+        }
+
+        //Recursive call to reach end of the list
+        boolean isEndP = checkPalindrome(right.next);
+        if(!isEndP){
+            return false;
+        }
+
+        //Check the data of both right and left node matches or not
+        boolean isStartP = right.data == left.data;
+
+        //Move left to next node
+        left = left.next;
+
+        return isStartP;
+
+    }
+}
+ 
+```
+
 Q6) Find a node in LL (recursive)
 
 #### Given a linked list and an integer n you need to find and return index where n is present in the LL. Do this recursively.
@@ -193,6 +358,33 @@ int indexOfNRecursive(Node *head, int n) {
     int i = 0;
     return helper(head, n, i);
   
+}
+```
+
+```java
+public class LinkedList{
+
+    /**
+     *
+     * @param head of the linkedlist
+     * @param n An integer to find
+     * @param i 0
+     * @return index of data found, else -1
+     */
+    private int findIndexRecursively(Node head, int n, int i){
+        
+        //If head reached to end, return -1
+        if(head == null){
+            return -1;
+        }
+        
+        if(head.data == n){
+            return i;
+        }
+
+        return findIndexRecursively(head.next,n, i+1);
+    }
+
 }
 ```
 
